@@ -22,7 +22,6 @@ The scan was performed in the TryHackMe Blue room, a virtualized environment sim
    - **Command**: `nmap -sC -sV -Pn 10.10.97.236`
    - **Purpose**: Scanned for open TCP ports, identified running services, and detected their versions.
    - **Explanation**: The `-sC` flag enables default Nmap Scripting Engine (NSE) scripts for vulnerability detection, while `-sV` performs service and version detection. The scan targeted all default ports, identifying open ports such as 135, 139, 445, 3389, and others.
-
 ![nmap 1](nmap.png)
 
 3. **Vulnerability Detection**:
