@@ -16,20 +16,20 @@ The scan was performed in the TryHackMe Blue room, a virtualized environment sim
    - **Command**: Implicit in `nmap -Pn` (host discovery skipped).
    - **Purpose**: Assumed the target (10.10.97.236) was up, as specified by `-Pn` (no ping).
    - **Explanation**: The `-Pn` flag bypasses host discovery, treating the target as live to focus on port and service scanning, useful in environments where ping responses are blocked.
-![nmap 0](report/nmap1.png)
+![nmap 0](nmap1.png)
 
 2. **Port and Service Scanning**:
    - **Command**: `nmap -sC -sV -Pn 10.10.97.236`
    - **Purpose**: Scanned for open TCP ports, identified running services, and detected their versions.
    - **Explanation**: The `-sC` flag enables default Nmap Scripting Engine (NSE) scripts for vulnerability detection, while `-sV` performs service and version detection. The scan targeted all default ports, identifying open ports such as 135, 139, 445, 3389, and others.
 
-![nmap 1](report/nmap.png)
+![nmap 1](nmap.png)
 
 3. **Vulnerability Detection**:
    - **Command**: `nmap -p 445 --script vuln 10.10.97.236`, leveraging NSE scripts like `vuln*` to detect vulnerabilities.
    - **Purpose**: Identified specific vulnerabilities, notably EternalBlue, in the SMB service.
    - **Explanation**: NSE scripts in the `smb-vuln` category check for known exploits in SMB, cross-referencing service versions with vulnerability databases.
-![nmap 2](report/nmap2.png)
+![nmap 2](nmap2.png)
 
 ### Environment
 - **Target**: Windows 7 Professional 7601 Service Pack 1, IP 10.10.97.236, running in the TryHackMe Blue room.
